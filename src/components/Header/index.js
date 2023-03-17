@@ -11,11 +11,13 @@ const Header = props => {
   return (
     <nav className="home-nav-container">
       <div className="home-nav-dtls-container">
-        <img
-          src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
-          alt="home"
-          className="jobby-logo"
-        />
+        <Link to="/">
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
+            alt="home"
+            className="jobby-logo"
+          />
+        </Link>
         <div>
           <Link to="/" className="link-btn">
             <button type="button" className="buttons">

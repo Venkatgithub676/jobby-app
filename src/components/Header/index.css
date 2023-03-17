@@ -25,6 +25,9 @@
   cursor: pointer;
 }
 
+.link-btn {
+  text-decoration: none;
+}
 .logout-btn {
   width: 80px;
   font-family: 'roboto';
