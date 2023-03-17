@@ -1,0 +1,70 @@
+.login-bg-container {
+  background-color: #000000;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  background-color: #202020;
+  width: 30%;
+  height: 400px;
+  max-height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.logo-img {
+  width: 40%;
+  margin-top: 40px;
+}
+.username-container {
+  width: 80%;
+  margin-top: 45px;
+  margin-bottom: 10px;
+}
+.label {
+  font-family: 'roboto';
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 13px;
+}
+.pass-container {
+  width: 80%;
+}
+
+.box {
+  width: 100%;
+  outline: none;
+  height: 30px;
+  padding-left: 20px;
+  border-radius: 4px;
+  background-color: #202020;
+  color: #cbd5e1;
+  border: 1px #475569 solid;
+  margin-top: 10px;
+}
+
+.login-btn {
+  background-color: #4f46e5;
+  border-radius: 8px;
+  color: #ffffff;
+  border: none;
+  width: 80%;
+  margin-top: 30px;
+  height: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.error-msg {
+  color: #ff0b37;
+  font-family: 'roboto';
+  width: 80%;
+  margin-top: 0;
+  font-size: 12px;
+  margin-bottom: 40px;
+}
