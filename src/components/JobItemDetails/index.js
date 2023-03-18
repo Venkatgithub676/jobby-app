@@ -3,6 +3,7 @@ import Cookies from 'js-cookie'
 import {AiFillStar} from 'react-icons/ai'
 import {MdLocationOn, MdBusinessCenter} from 'react-icons/md'
 import {IoOpenOutline} from 'react-icons/io5'
+import Loader from 'react-loader-spinner'
 import Header from '../Header'
 import './index.css'
 
@@ -18,6 +19,7 @@ class JobItemDetails extends Component {
 
   componentDidMount() {
     this.getDetails()
+    console.log(this.getDetails())
   }
 
   convertData = data => ({
@@ -52,7 +54,7 @@ class JobItemDetails extends Component {
   })
 
   getDetails = async () => {
-    console.log(1)
+    this.setState({status: views.inProgress})
     const jwtToken = Cookies.get('jwt_token')
     const {match} = this.props
     const {params} = match
@@ -65,10 +67,16 @@ class JobItemDetails extends Component {
       },
     }
     const response = await fetch(apiUrl, options)
-    const data1 = await response.json()
-    const jobItemDtls = this.convertData(data1.job_details)
-    const similarJobs = data1.similar_jobs.map(each => this.convertData2(each))
-    this.setState({jobItemDtls, similarJobs, status: views.success})
+    if (response.ok) {
+      const data1 = await response.json()
+      const jobItemDtls = this.convertData(data1.job_details)
+      const similarJobs = data1.similar_jobs.map(each =>
+        this.convertData2(each),
+      )
+      this.setState({jobItemDtls, similarJobs, status: views.success})
+    } else {
+      this.setState({status: views.failure})
+    }
   }
 
   onJobItemDtls = () => {
@@ -76,7 +84,6 @@ class JobItemDetails extends Component {
     const {
       companyLogoUrl,
       employmentType,
-      id,
       jobDescription,
       location,
       pkgPerAnnum,
@@ -119,11 +126,11 @@ class JobItemDetails extends Component {
           </div>
           <hr />
           <div className="description-container">
-            <div>
+            <div className="description-link-container">
               <h1 className="job-item-dtls-description-heading">Description</h1>
               <a href={companyWebsiteUrl} className="hyper-link">
-                <h1>Visit</h1>
-                <IoOpenOutline />
+                <h1 className="visit">Visit</h1>
+                <IoOpenOutline className="open-icon" />
               </a>
             </div>
             <p className="job-item-dtls-description-para">{jobDescription}</p>
@@ -164,15 +171,14 @@ class JobItemDetails extends Component {
     const {
       companyLogoUrl,
       employmentType,
-      id,
       jobDescription,
       location,
-      pkgPerAnnum,
       rating,
       title,
+      id,
     } = eachItem
     return (
-      <div className="similar-jobs-full-dtls-container">
+      <div className="similar-jobs-full-dtls-container" key={id}>
         <div className="logo-title-container">
           <img className="logo" src={companyLogoUrl} alt=" " />
           <div>
@@ -212,12 +218,55 @@ class JobItemDetails extends Component {
     )
   }
 
+  onFailure = () => (
+    <div className="job-dtls-failure-container">
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/failure-img.png "
+        alt="failure view"
+        className="job-item-dtls-failure-img"
+      />
+      <h1 className="job-item-dtls-heading">Oops! Something Went Wrong</h1>
+      <p className="job-item-dtls-para">
+        We cannot seem to find the page you are looking for.
+      </p>
+      <button type="button" className="retry-btn" onClick={this.getDetails}>
+        Retry
+      </button>
+    </div>
+  )
+
+  onSuccess = () => (
+    <>
+      {this.onJobItemDtls()}
+      {this.onSimilarJobs()}
+    </>
+  )
+
+  onInProgress = () => (
+    <div className="loader-container3" data-testid="loader">
+      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+    </div>
+  )
+
+  currentStatus = () => {
+    const {status} = this.state
+    switch (status) {
+      case views.success:
+        return this.onSuccess()
+      case views.inProgress:
+        return this.onInProgress()
+      case views.failure:
+        return this.onFailure()
+      default:
+        return null
+    }
+  }
+
   render() {
     return (
       <div className="item-details-bg-container">
         <Header />
-        {this.onJobItemDtls()}
-        {this.onSimilarJobs()}
+        {this.currentStatus()}
       </div>
     )
   }
