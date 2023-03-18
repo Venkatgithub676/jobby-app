@@ -174,7 +174,7 @@ class Jobs extends Component {
     } = each
     return (
       <li className="few-jobs-dtls-list-items-container" key={id}>
-        <Link to="/" className="few-jobs-links">
+        <Link to={`/jobs/${id}`} className="few-jobs-links">
           <div className="logo-title-container">
             <img
               src={companyLogoUrl}
