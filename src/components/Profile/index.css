@@ -1,13 +1,14 @@
 .profile-bg-container {
   background-image: url(https://assets.ccbp.in/frontend/react-js/profile-bg.png);
   width: 100%;
-  height: 232px;
+  height: 200px;
   background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 15px;
+  padding: 25px 15px 20px 15px;
   margin-bottom: 25px;
+  border-radius: 20px;
 }
 @media screen and (max-width: 768px) {
   .profile-bg-container {
@@ -19,7 +20,7 @@
 }
 
 .profile-img {
-  width: 30%;
+  width: 50px;
 }
 
 @media screen and (max-width: 768px) {

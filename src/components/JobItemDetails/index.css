@@ -39,7 +39,7 @@
 }
 .title {
   font-family: 'roboto';
-  font-size: 25px;
+  font-size: 22px;
   color: #ffffff;
   margin-bottom: 0;
 }
@@ -93,8 +93,8 @@
 }
 
 .job-item-dtls-location-icon {
-  margin-right: 10px;
-  font-size: 30px;
+  margin-right: 8px;
+  font-size: 25px;
 }
 @media screen and (max-width: 768px) {
   .job-item-dtls-location-icon {
@@ -104,7 +104,7 @@
 
 .job-item-dtls-location-name {
   font-family: 'roboto';
-  font-size: 18px;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 768px) {
@@ -118,8 +118,8 @@
   color: #ffffff;
 }
 .job-item-dtls-emp-type-icon {
-  margin-right: 10px;
-  font-size: 30px;
+  margin-right: 8px;
+  font-size: 25px;
 }
 
 @media screen and (max-width: 768px) {
@@ -129,7 +129,7 @@
 }
 .job-item-dtls-emp-type-name {
   font-family: 'roboto';
-  font-size: 18px;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 768px) {
@@ -293,7 +293,8 @@
 }
 
 .life-at-comp-img {
-  width: 30%;
+  width: 40%;
+  max-width: 400px;
   height: 300px;
 }
 
@@ -301,6 +302,7 @@
   .life-at-comp-img {
     width: 100%;
     height: 200px;
+    max-width: 100%;
   }
 }
 .similar-jobs-container {
