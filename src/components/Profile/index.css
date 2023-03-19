@@ -9,9 +9,23 @@
   padding: 15px;
   margin-bottom: 25px;
 }
+@media screen and (max-width: 768px) {
+  .profile-bg-container {
+    height: 250px;
+    width: 100%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+}
 
 .profile-img {
   width: 30%;
+}
+
+@media screen and (max-width: 768px) {
+  .profile-img {
+    width: 60px;
+  }
 }
 .profile-name {
   font-family: 'roboto';
@@ -22,8 +36,13 @@
 .profile-bio {
   font-family: 'roboto';
   font-size: 15px;
+  color: #272727;
 }
-
+@media screen and (max-width: 768px) {
+  .profile-bio {
+    font-size: 20px;
+  }
+}
 .loader-container1 {
   display: flex;
   justify-content: center;

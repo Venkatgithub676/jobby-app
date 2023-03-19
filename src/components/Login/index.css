@@ -8,19 +8,30 @@
 
 .login-container {
   background-color: #202020;
-  width: 30%;
-  height: 400px;
+  width: 40%;
+  padding: 50px 20px 50px 20px;
   max-height: 450px;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 5px;
 }
-
+@media screen and (max-width: 768px) {
+  .login-container {
+    width: 80%;
+    padding: 30px 20px 30px 20px;
+  }
+}
 .logo-img {
   width: 40%;
-  margin-top: 40px;
 }
+@media screen and (max-width: 768px) {
+  .logo-img {
+    width: 30%;
+  }
+}
+
 .username-container {
   width: 80%;
   margin-top: 45px;
@@ -67,4 +78,10 @@
   margin-top: 0;
   font-size: 12px;
   margin-bottom: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .error-msg {
+    margin-bottom: 0;
+  }
 }

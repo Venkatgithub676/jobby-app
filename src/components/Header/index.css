@@ -3,7 +3,7 @@
   width: 100%;
 }
 
-.home-nav-dtls-container {
+.home-jobs-logout-lap-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -11,11 +11,42 @@
   margin: auto;
   height: 10vh;
 }
-
-.jobby-logo {
-  height: 30px;
+.home-jobs-logout-mob-container {
+  display: none;
 }
 
+@media (max-width: 768px) {
+  .home-jobs-logout-mob-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    width: 90%;
+    margin: auto;
+  }
+  .home-jobs-logout-lap-container {
+    display: none;
+  }
+}
+.jobby-logo {
+  height: 40px;
+}
+@media screen and (max-width: 768px) {
+  .jobby-logo {
+    height: 30px;
+  }
+}
+.mobile-view-nav-icons {
+  list-style-type: none;
+  padding-left: 0;
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .mobile-view-nav-icons {
+    display: flex;
+  }
+}
 .buttons {
   background-color: transparent;
   border: none;
@@ -25,9 +56,19 @@
   cursor: pointer;
 }
 
+@media screen and (max-width: 768px) {
+  .buttons {
+    font-size: 30px;
+  }
+}
 .link-btn {
   text-decoration: none;
 }
+
+.btn1 {
+  margin-right: 10px;
+}
+
 .logout-btn {
   width: 80px;
   font-family: 'roboto';

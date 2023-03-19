@@ -101,7 +101,7 @@ class JobItemDetails extends Component {
             <img
               className="logo"
               src={companyLogoUrl}
-              alt=" job details company logo"
+              alt="job details company logo"
             />
             <div>
               <h1 className="title">{title}</h1>
@@ -129,7 +129,7 @@ class JobItemDetails extends Component {
             <div className="description-link-container">
               <h1 className="job-item-dtls-description-heading">Description</h1>
               <a href={companyWebsiteUrl} className="hyper-link">
-                <h1 className="visit">Visit</h1>
+                Visit
                 <IoOpenOutline className="open-icon" />
               </a>
             </div>
@@ -137,15 +137,19 @@ class JobItemDetails extends Component {
           </div>
           <div>
             <h1 className="job-item-dtls-skills-heading">Skills</h1>
-            <div className="total-skills-container">
+            <ul className="total-skills-container">
               {status === views.success &&
                 skills.map(each => (
-                  <div className="skill-name-img-container" key={each.name}>
-                    <img src={each.imageUrl} alt="" className="skill-img" />
+                  <li className="skill-name-img-container" key={each.name}>
+                    <img
+                      src={each.imageUrl}
+                      alt={each.name}
+                      className="skill-img"
+                    />
                     <p className="skill-names">{each.name}</p>
-                  </div>
+                  </li>
                 ))}
-            </div>
+            </ul>
           </div>
           <div>
             <h1 className="life-at-comp-heading">Life at Company</h1>
@@ -157,7 +161,7 @@ class JobItemDetails extends Component {
                 <img
                   className="life-at-comp-img"
                   src={lifeAtCompany.imageUrl}
-                  alt=""
+                  alt="life at company"
                 />
               </div>
             )}
@@ -178,9 +182,13 @@ class JobItemDetails extends Component {
       id,
     } = eachItem
     return (
-      <div className="similar-jobs-full-dtls-container" key={id}>
+      <li className="similar-jobs-full-dtls-container" key={id}>
         <div className="logo-title-container">
-          <img className="logo" src={companyLogoUrl} alt=" " />
+          <img
+            className="logo"
+            src={companyLogoUrl}
+            alt="similar job company logo"
+          />
           <div>
             <h1 className="title">{title}</h1>
             <div className="job-item-dtls-rating-container">
@@ -201,7 +209,7 @@ class JobItemDetails extends Component {
             <p className="job-item-dtls-emp-type-para">{employmentType}</p>
           </div>
         </div>
-      </div>
+      </li>
     )
   }
 
@@ -210,10 +218,10 @@ class JobItemDetails extends Component {
     return (
       <div className="details-container">
         <h1 className="similar-jobs-heading">Similar Jobs</h1>
-        <div className="similar-jobs-dtls-container">
+        <ul className="similar-jobs-dtls-container">
           {status === views.success &&
             similarJobs.map(eachItem => this.simJobs(eachItem))}
-        </div>
+        </ul>
       </div>
     )
   }

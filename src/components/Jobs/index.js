@@ -254,7 +254,7 @@ class Jobs extends Component {
       />
       <h1 className="failure-heading">Oops! Something Went Wrong</h1>
       <p className="failure-para">
-        We cannot see the page you are looking for.
+        We cannot seem to find the page you are looking for
       </p>
       <button type="button" className="retry-btn" onClick={this.onClickRetry}>
         Retry
@@ -285,21 +285,37 @@ class Jobs extends Component {
         <Header />
         <div className="jobs-bg-container1">
           <div className="jobs-bg-container2">
+            <div className="search-box-container1 ">
+              <input
+                type="search"
+                placeholder="Search"
+                className="search-input"
+                onChange={this.onChangeSearch}
+              />
+              <button
+                type="button"
+                data-testid="searchButton"
+                className="search-btn"
+                onClick={this.onClickSearch}
+              >
+                <BsSearch className="search-icon" />
+              </button>
+            </div>
             <div className="jobs-bg-container3">
               <Profile />
               <hr />
-              <p className="types-heading">Types of Employment</p>
+              <h1 className="types-heading">Type of Employment</h1>
               <ul className="ul-container">
                 {employmentTypesList.map(each => this.employmentTypeItem(each))}
               </ul>
               <hr />
-              <p className="types-heading">Salary Range</p>
+              <h1 className="types-heading">Salary Range</h1>
               <ul className="ul-container">
                 {salaryRangesList.map(each => this.salaryRangeItem(each))}
               </ul>
             </div>
             <div className="jobs-bg-container4">
-              <div className="search-box-container">
+              <div className="search-box-container2">
                 <input
                   type="search"
                   placeholder="Search"
